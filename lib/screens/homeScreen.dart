@@ -80,7 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: const Icon(
               Icons.person_outline_rounded,
               size: 28,
-
             ),
             selectedIcon: const Icon(
               Icons.person,
