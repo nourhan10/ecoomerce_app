@@ -1,3 +1,4 @@
+import 'package:ecommerce_application/screens/categories_screen.dart';
 import 'package:ecommerce_application/screens/homeScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +18,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home:
+      // const MyHomePage(title: 'Flutter Demo Home Page'),
+       CategoriesScreen(),
+      // categoryData == null ?
+      // CategoriesScreen(onCategorySelected): MyHomePage(title: "Flutter Demo");
     );
   }
 }
+
+// CategoryData? categoryData = null;
+// void onCategorySelected(categorySelected){
+//   categoryData = categorySelected;
+// }
 
