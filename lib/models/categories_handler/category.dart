@@ -1,5 +1,5 @@
 class Category{
-  String name;
-  Category(this.name);
+  String categoryName;
+  Category(this.categoryName);
   
 }
