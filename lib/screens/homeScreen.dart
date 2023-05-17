@@ -28,9 +28,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       body: SafeArea(
+
         child: Column(
           children: [
-           
+
             Container(
               height: height * .1,
               width: width,

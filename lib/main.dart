@@ -1,5 +1,7 @@
 import 'package:ecommerce_application/screens/categories_screen.dart';
+import 'package:ecommerce_application/screens/home.dart';
 import 'package:ecommerce_application/screens/homeScreen.dart';
+import 'package:ecommerce_application/screens/test.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,8 +21,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home:
+        Test(title: "Flutter Demo"),
+        // Home(),
       // const MyHomePage(title: 'Flutter Demo Home Page'),
-       CategoriesScreen(),
+      //  CategoriesScreen(),
       // categoryData == null ?
       // CategoriesScreen(onCategorySelected): MyHomePage(title: "Flutter Demo");
     );

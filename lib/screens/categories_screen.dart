@@ -89,7 +89,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         ),
       ),
       Container(
-        height: height * 0.9,
+        height: height * 0.8,
         width: width,
         color: Colors.grey[200],
         child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
