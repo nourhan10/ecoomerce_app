@@ -1,25 +1,13 @@
-import 'package:ecommerce_application/models/subCategory.dart';
-import 'package:ecommerce_application/models/subcategory_model.dart';
+import 'package:ecommerce_application/models/sub_category_model.dart';
 import 'package:flutter/material.dart';
 
-import '../models/category_model.dart';
-
 class AppleCategory extends StatelessWidget {
-  // List<CategoryModel> iphone = [
-  //   CategoryModel("Iphone 14", "assets/images/iphone.jpg"),
-  //   CategoryModel("Iphone 14", "assets/images/iphone.jpg"),
-  //   CategoryModel("Iphone 14", "assets/images/iphone.jpg"),
-  //   CategoryModel("Iphone 14", "assets/images/iphone.jpg"),
-  // ];
+
   List<String> namesOfIPhoneSubCategoryItems = [
     "airpods ",
     "Anker Soundcore",
     "HDMI Cable",
     "iphone 12"
-    // "airpods 2nd Generation",
-    // "Anker Soundcore Wakey",
-    // "Apple HDMI to HDMI Cable(1.8m)",
-    // "iphone 12 pro Max"
   ];
   List<String> pathesOfIPhoneSubCategoryImages = [
     "assets/images/airpods.png",
@@ -70,85 +58,81 @@ class AppleCategory extends StatelessWidget {
       child: ListView(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(14), topRight: Radius.circular(14)),
               color: Colors.white,
             ),
-            padding: EdgeInsets.all(10.0),
-            child: Text(
+            padding: const EdgeInsets.all(10.0),
+            child: const Text(
               "IPhone",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
-              // textDirection: TextDirection.ltr,
             ),
           ),
-          SubCategory(
+          SubCategoryModel(
               pathesOfIPhoneSubCategoryImages, namesOfIPhoneSubCategoryItems),
           const SizedBox(
             height: 20,
           ),
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(14), topRight: Radius.circular(14)),
               color: Colors.white,
             ),
-            padding: EdgeInsets.all(10.0),
-            child: Text(
+            padding: const EdgeInsets.all(10.0),
+            child: const Text(
               "IPad",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
-              // textDirection: TextDirection.ltr,
             ),
           ),
-          SubCategory(
+          SubCategoryModel(
               pathesOfIPadSubCategoryImages, namesOfIPadSubCategoryItems),
           const SizedBox(
             height: 20,
           ),
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(14), topRight: Radius.circular(14)),
               color: Colors.white,
             ),
-            padding: EdgeInsets.all(10.0),
-            child: Text(
+            padding: const EdgeInsets.all(10.0),
+            child: const Text(
               "IPad",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
-              // textDirection: TextDirection.ltr,
             ),
           ),
-          SubCategory(
+          SubCategoryModel(
               pathesOfIPadSubCategoryImages, namesOfIPadSubCategoryItems),
           const SizedBox(
             height: 20,
           ),
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(14), topRight: Radius.circular(14)),
               color: Colors.white,
             ),
-            padding: EdgeInsets.all(10.0),
-            child: Text(
+            padding: const EdgeInsets.all(10.0),
+            child: const Text(
               "Mac",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
-              // textDirection: TextDirection.ltr,
             ),
           ),
-          SubCategory(
+          SubCategoryModel(
               pathesOfMacSubCategoryImages, namesOfMacSubCategoryItems),
         ],
       ),

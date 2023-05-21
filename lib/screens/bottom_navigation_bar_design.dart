@@ -1,22 +1,20 @@
-import 'package:ecommerce_application/screens/account_screen.dart';
-import 'package:ecommerce_application/screens/cart_screen.dart';
-import 'package:ecommerce_application/screens/home_content_screen.dart';
+import 'package:ecommerce_application/screens/accountScreen/account_screen.dart';
+import 'package:ecommerce_application/screens/cartScreen/cart_screen.dart';
+import 'package:ecommerce_application/screens/homeScreenContent/home_screen_content.dart';
 import 'package:flutter/material.dart';
+import 'categoriesScreen/categories_screen.dart';
 
-import 'categories_screen.dart';
-
-class Test extends StatefulWidget {
-  // MyHomePage({Key key, this.title}) : super(key: key);
-
+class BottomNavigationBarDesign extends StatefulWidget {
   String title;
 
-  Test({required this.title});
+  BottomNavigationBarDesign({required this.title});
 
   @override
-  _TestState createState() => _TestState();
+  _BottomNavigationBarDesignState createState() =>
+      _BottomNavigationBarDesignState();
 }
 
-class _TestState extends State<Test> {
+class _BottomNavigationBarDesignState extends State<BottomNavigationBarDesign> {
   int bottomSelectedIndex = 0;
 
   List<BottomNavigationBarItem> buildBottomNavBarItems() {
@@ -57,13 +55,24 @@ class _TestState extends State<Test> {
     keepPage: true,
   );
 
+  void pageChanged(int index) {
+    setState(() {
+      bottomSelectedIndex = index;
+    });
+  }
+
   Widget buildPageView() {
     return PageView(
       controller: pageController,
       onPageChanged: (index) {
         pageChanged(index);
       },
-      children: <Widget>[HomeContentScreen(), CategoriesScreen(), CartScreen(), AccountScreen()],
+      children: <Widget>[
+        HomeScreenContent(),
+        CategoriesScreen(),
+        CartScreen(),
+        AccountScreen()
+      ],
     );
   }
 
@@ -72,17 +81,11 @@ class _TestState extends State<Test> {
     super.initState();
   }
 
-  void pageChanged(int index) {
-    setState(() {
-      bottomSelectedIndex = index;
-    });
-  }
-
   void bottomTapped(int index) {
     setState(() {
       bottomSelectedIndex = index;
       pageController.animateToPage(index,
-          duration: Duration(milliseconds: 200), curve: Curves.ease);
+          curve: Curves.ease, duration: Duration(milliseconds: 10));
     });
   }
 

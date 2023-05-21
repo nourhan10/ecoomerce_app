@@ -1,24 +1,17 @@
-import 'package:ecommerce_application/categories/accessories_category.dart';
-import 'package:ecommerce_application/categories/apple_category.dart';
-import 'package:ecommerce_application/categories/electronics_category.dart';
-import 'package:ecommerce_application/categories/games_category.dart';
-import 'package:ecommerce_application/categories/security_systems_category.dart';
-import 'package:ecommerce_application/categories/smart_phones_category.dart';
-import 'package:ecommerce_application/categories/tablets_category.dart';
 import 'package:flutter/material.dart';
+import 'categories/accessories_category.dart';
+import 'categories/apple_category.dart';
+import 'categories/electronics_category.dart';
+import 'categories/games_category.dart';
+import 'categories/security_systems_category.dart';
+import 'categories/smart_phones_category.dart';
+import 'categories/tablets_category.dart';
 
 class CategoriesScreen extends StatefulWidget {
-  // Function onCategorySelect;
-  // CategoriesScreen(this.onCategorySelect);
 
   @override
   State<CategoriesScreen> createState() => _CategoriesScreenState();
 
-// CategoryData? categoryData = null;
-// onCategorySelect(categorySelected) {
-//   categoryData = categorySelected;
-//   return categorySelected;
-// }
 }
 
 class _CategoriesScreenState extends State<CategoriesScreen> {
@@ -47,7 +40,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       SecuritySystemsCategory()
     ];
     int selectedCategoryIndex = 0;
-    // int currentIndex = 0;
 
     return Scaffold(
         body: Column(children: [
@@ -110,37 +102,35 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     child: Container(
                       decoration: BoxDecoration(
                         color: selectedIndex == index ? Colors.grey[200] : null,
-                        border: selectedIndex == index
-                            ? Border(
-                                left: BorderSide(color: Colors.red, width: 2))
-                            : null,
+                        border: selectedIndex == index ? const Border(left: BorderSide(color: Colors.red, width: 2)) : null,
                       ),
                       padding:
                           EdgeInsets.symmetric(vertical: 26.0, horizontal: 8.0),
                       child: Center(
-                          // child: InkWell(
-                          //   onTap: (){
-                          //     setState(() {
-                          //       selectedCategoryIndex = index;
-                          //     });
-                          //   },
-                            child: Text(
-                              namesOfAllCategories[index],
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
-                              // style: TextStyle( ),
-                            ),
+                        // child: InkWell(
+                        //   onTap: (){
+                        //     setState(() {
+                        //       selectedCategoryIndex = index;
+                        //     });
+                        //   },
+                        child: Text(
+                          namesOfAllCategories[index],
+                          style: const TextStyle(
+                            fontSize: 12,
                           ),
+                          // style: TextStyle( ),
                         ),
-                      );
+                      ),
+                    ),
+                  );
                 }),
           ),
           Container(
             height: height,
             width: width * 0.78,
             color: Colors.grey[200],
-            padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
             // color: Colors.amr,
             child: Container(
               child: categoriesContent[selectedCategoryIndex],
