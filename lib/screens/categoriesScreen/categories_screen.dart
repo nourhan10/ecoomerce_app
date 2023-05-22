@@ -16,6 +16,7 @@ class CategoriesScreen extends StatefulWidget {
 
 class _CategoriesScreenState extends State<CategoriesScreen> {
   int selectedIndex = 0;
+  int selectedCategoryIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       ElectronicsCategory(),
       SecuritySystemsCategory()
     ];
-    int selectedCategoryIndex = 0;
 
     return Scaffold(
         body: Column(children: [
@@ -89,7 +89,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             height: height,
             width: width * 0.22,
             color: Colors.white,
-            // padding: EdgeInsets.all(5.0),
             child: ListView.builder(
                 itemCount: namesOfAllCategories.length,
                 itemBuilder: (BuildContext context, int index) {
@@ -97,31 +96,24 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     onTap: () {
                       setState(() {
                         selectedIndex = index;
+                        selectedCategoryIndex = selectedIndex;
                       }); // widget.onCategorySelect(namesOfAllCategories[index]);
                     },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: selectedIndex == index ? Colors.grey[200] : null,
-                        border: selectedIndex == index ? const Border(left: BorderSide(color: Colors.red, width: 2)) : null,
-                      ),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 26.0, horizontal: 8.0),
-                      child: Center(
-                        // child: InkWell(
-                        //   onTap: (){
-                        //     setState(() {
-                        //       selectedCategoryIndex = index;
-                        //     });
-                        //   },
-                        child: Text(
-                          namesOfAllCategories[index],
-                          style: const TextStyle(
-                            fontSize: 12,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: selectedIndex == index ? Colors.grey[200] : null,
+                          border: selectedIndex == index ? const Border(left: BorderSide(color: Colors.red, width: 2)) : null,
+                        ),
+                        padding: EdgeInsets.symmetric(vertical: 26.0, horizontal: 8.0),
+                        child: Center(
+                          child: Text(
+                            namesOfAllCategories[index],
+                            style: const TextStyle(
+                              fontSize: 12,
+                            ),
                           ),
-                          // style: TextStyle( ),
                         ),
                       ),
-                    ),
                   );
                 }),
           ),
@@ -131,7 +123,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             color: Colors.grey[200],
             padding:
                 const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
-            // color: Colors.amr,
             child: Container(
               child: categoriesContent[selectedCategoryIndex],
               // widget.onCategorySelect(categoriesContent[index]),
