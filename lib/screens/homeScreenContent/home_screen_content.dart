@@ -7,6 +7,7 @@ import 'homeScreenContentSections/offers_section.dart';
 import 'homeScreenContentSections/sales_section.dart';
 
 class HomeScreenContent extends StatelessWidget {
+  static final String routeName = "home content screen";
   @override
   Widget build(BuildContext context) {
     return Scaffold(

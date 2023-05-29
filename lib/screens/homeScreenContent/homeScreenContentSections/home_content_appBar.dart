@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeContentAppBar extends StatelessWidget {
   @override
@@ -31,8 +32,8 @@ class HomeContentAppBar extends StatelessWidget {
                     size: 26,
                     color: Colors.grey[700],
                   ),
-                  const Text(
-                    "Search here....",
+                  Text(
+                    AppLocalizations.of(context)!.search_here,
                     style: TextStyle(fontSize: 16),
                   ),
                 ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SalesSection extends StatelessWidget {
-  // const SalesSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,8 @@ class SalesSection extends StatelessWidget {
               const Text("Special Sales", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               InkWell(
                 onTap: () {},
-                child: const Text(
-                  "See More",
+                child: Text(
+                  AppLocalizations.of(context)!.see_more,
                   style: TextStyle(color: Colors.red, fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),

@@ -26,22 +26,25 @@ class SubCategoryModel extends StatelessWidget {
               return Container(
                 height: 130,
                 margin: const EdgeInsets.all(5.0),
-                child: Column(
-                  children: [
-                    Container(
-                      width: 110,
-                      height: MediaQuery.of(context).size.height * 0.14,
-                      color: Colors.grey[200],
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 12.0),
-                      child: Image.asset(pathesOfSubCategoryImages[index]),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(namesOfSubCategoryItems[index],
-                        style: const TextStyle(fontSize: 10)),
-                  ],
+                child: InkWell(
+                  onTap: (){},
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 110,
+                        height: MediaQuery.of(context).size.height * 0.14,
+                        color: Colors.grey[200],
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 12.0),
+                        child: Image.asset(pathesOfSubCategoryImages[index]),
+                      ),
+                      const SizedBox(
+                        height: 4,
+                      ),
+                      Text(namesOfSubCategoryItems[index],
+                          style: const TextStyle(fontSize: 10)),
+                    ],
+                  ),
                 ),
               );
             }));

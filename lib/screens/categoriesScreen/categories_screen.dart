@@ -1,4 +1,8 @@
+// import 'package:ecommerce_application/provides/all_categories_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../providers/all_categories_provider.dart';
 import 'categories/accessories_category.dart';
 import 'categories/apple_category.dart';
 import 'categories/electronics_category.dart';
@@ -8,10 +12,8 @@ import 'categories/smart_phones_category.dart';
 import 'categories/tablets_category.dart';
 
 class CategoriesScreen extends StatefulWidget {
-
   @override
   State<CategoriesScreen> createState() => _CategoriesScreenState();
-
 }
 
 class _CategoriesScreenState extends State<CategoriesScreen> {
@@ -22,15 +24,15 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    List<String> namesOfAllCategories = [
-      "Apple",
-      "Smart Phones",
-      "Tablets",
-      "Accessories",
-      "Games",
-      "Electronics",
-      "Security Systems"
-    ];
+    // List<String> namesOfAllCategories = [
+    //   "Apple",
+    //   "Smart Phones",
+    //   "Tablets",
+    //   "Accessories",
+    //   "Games",
+    //   "Electronics",
+    //   "Security Systems"
+    // ];
     List<Widget> categoriesContent = [
       AppleCategory(),
       SmartPhonesCategory(),
@@ -89,33 +91,55 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             height: height,
             width: width * 0.22,
             color: Colors.white,
-            child: ListView.builder(
-                itemCount: namesOfAllCategories.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return InkWell(
-                    onTap: () {
-                      setState(() {
-                        selectedIndex = index;
-                        selectedCategoryIndex = selectedIndex;
-                      }); // widget.onCategorySelect(namesOfAllCategories[index]);
-                    },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: selectedIndex == index ? Colors.grey[200] : null,
-                          border: selectedIndex == index ? const Border(left: BorderSide(color: Colors.red, width: 2)) : null,
-                        ),
-                        padding: EdgeInsets.symmetric(vertical: 26.0, horizontal: 8.0),
-                        child: Center(
-                          child: Text(
-                            namesOfAllCategories[index],
-                            style: const TextStyle(
-                              fontSize: 12,
+            child: Provider(
+              /// create Provider
+                create: (_) => AllCategoriesProvider(),
+                child: Consumer<AllCategoriesProvider>(
+                  builder: (context, allCategories, child) {
+                    return ListView.builder(
+                        itemCount:
+                            AllCategoriesProvider.namesOfAllCategories.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return InkWell(
+                            onTap: () {
+                              setState(() {
+                                selectedIndex = index;
+                                selectedCategoryIndex = selectedIndex;
+                              }); // widget.onCategorySelect(namesOfAllCategories[index]);
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: selectedIndex == index
+                                    ? Colors.grey[200]
+                                    : null,
+                                border: selectedIndex == index
+                                    ? const Border(
+                                        left: BorderSide(
+                                            color: Colors.red, width: 2))
+                                    : null,
+                              ),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 26.0, horizontal: 8.0),
+                              child: Center(
+                                child: Text(
+                                  AllCategoriesProvider
+                                      .namesOfAllCategories[index].name,
+                                  // namesOfAllCategories[index],
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                      ),
-                  );
-                }),
+                          );
+                        });
+                  },
+                )
+                // Consumer<AllCategoriesProvider>(
+                // builder(BuildContext, AllCategoriesProvider, index) {
+                //   return
+                // })
+                ),
           ),
           Container(
             height: height,

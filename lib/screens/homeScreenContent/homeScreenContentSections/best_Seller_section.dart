@@ -1,6 +1,6 @@
-import 'package:ecommerce_application/models/sub_category_model.dart';
 import 'package:ecommerce_application/models/sub_category_model_for_home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BestSellerSection extends StatelessWidget {
   @override
@@ -35,7 +35,7 @@ class BestSellerSection extends StatelessWidget {
                       vertical: MediaQuery.of(context).size.height * 0.015,
                       horizontal: MediaQuery.of(context).size.width * 0.06),
                   child: Text(
-                    "See More",
+                    AppLocalizations.of(context)!.see_more,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,

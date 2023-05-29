@@ -97,26 +97,26 @@ class AppleCategory extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(14), topRight: Radius.circular(14)),
-              color: Colors.white,
-            ),
-            padding: const EdgeInsets.all(10.0),
-            child: const Text(
-              "IPad",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          SubCategoryModel(
-              pathesOfIPadSubCategoryImages, namesOfIPadSubCategoryItems),
-          const SizedBox(
-            height: 20,
-          ),
+          // Container(
+          //   decoration: const BoxDecoration(
+          //     borderRadius: BorderRadius.only(
+          //         topLeft: Radius.circular(14), topRight: Radius.circular(14)),
+          //     color: Colors.white,
+          //   ),
+          //   padding: const EdgeInsets.all(10.0),
+          //   child: const Text(
+          //     "IPad",
+          //     style: TextStyle(
+          //       fontSize: 20,
+          //       fontWeight: FontWeight.bold,
+          //     ),
+          //   ),
+          // ),
+          // SubCategoryModel(
+          //     pathesOfIPadSubCategoryImages, namesOfIPadSubCategoryItems),
+          // const SizedBox(
+          //   height: 20,
+          // ),
           Container(
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(

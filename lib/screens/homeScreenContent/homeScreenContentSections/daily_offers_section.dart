@@ -12,11 +12,23 @@ class DailyOffersSection extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Container(
       width: width,
-      height: height * 0.66,
-      padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.02),
+      height: height * 0.74,
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.02),
       // color: Colors.yellow,
       child: Column(
         children: [
+          Container(
+              width: width,
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.03,
+                left: MediaQuery.of(context).size.height * 0.02,
+                right: MediaQuery.of(context).size.height * 0.02,
+              ),
+              child: Text(
+                "Daily Offers",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              )),
           DailyOfferModel(DailyOffersProducts.dailyOffers),
         ],
       ),

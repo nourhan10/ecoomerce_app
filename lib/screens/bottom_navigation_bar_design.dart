@@ -2,7 +2,10 @@ import 'package:ecommerce_application/screens/accountScreen/account_screen.dart'
 import 'package:ecommerce_application/screens/cartScreen/cart_screen.dart';
 import 'package:ecommerce_application/screens/homeScreenContent/home_screen_content.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'categoriesScreen/categories_screen.dart';
+import 'package:provider/provider.dart';
+import '../../providers/language_settings_provider.dart';
 
 class BottomNavigationBarDesign extends StatefulWidget {
   String title;
@@ -19,33 +22,34 @@ class _BottomNavigationBarDesignState extends State<BottomNavigationBarDesign> {
 
   List<BottomNavigationBarItem> buildBottomNavBarItems() {
     return [
-      const BottomNavigationBarItem(
+      BottomNavigationBarItem(
         icon: Icon(
           Icons.home,
           size: 28,
         ),
-        label: 'Home',
+        label: AppLocalizations.of(context)!.home,
       ),
-      const BottomNavigationBarItem(
+      BottomNavigationBarItem(
         icon: Icon(
           Icons.category,
           size: 28,
         ),
-        label: 'Categories',
+        label: AppLocalizations.of(context)!.categories,
       ),
-      const BottomNavigationBarItem(
+      BottomNavigationBarItem(
         icon: Icon(
           Icons.shopping_cart,
           size: 28,
         ),
-        label: 'Cart',
+        label: AppLocalizations.of(context)!.cart,
+
       ),
-      const BottomNavigationBarItem(
+      BottomNavigationBarItem(
         icon: Icon(
-          Icons.person_outline_rounded,
+          Icons.person,
           size: 28,
         ),
-        label: 'Account',
+        label: AppLocalizations.of(context)!.account,
       ),
     ];
   }
@@ -92,10 +96,12 @@ class _BottomNavigationBarDesignState extends State<BottomNavigationBarDesign> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+    LanguageSettingsProvider languageProvider = Provider.of(context);
+
     return Scaffold(
       body: buildPageView(),
       bottomNavigationBar: SizedBox(
-        height: height * 0.1,
+        height: languageProvider.currentLocale == "en"? height * 0.1 : height * 0.112,
         child: BottomNavigationBar(
           showSelectedLabels: true,
           selectedItemColor: Colors.red,
