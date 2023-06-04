@@ -1,9 +1,14 @@
 import 'package:ecommerce_application/providers/language_settings_provider.dart';
 import 'package:ecommerce_application/screens/accountScreen/account_screen.dart';
 import 'package:ecommerce_application/screens/accountScreen/change_language_screen.dart';
-import 'package:ecommerce_application/screens/accountScreen/forget_password_screen.dart';
-import 'package:ecommerce_application/screens/accountScreen/sign_in_screen.dart';
-import 'package:ecommerce_application/screens/accountScreen/sign_up_screen.dart';
+import 'package:ecommerce_application/screens/accountScreen/register_screen.dart';
+// import 'package:ecommerce_application/screens/unused/account_screen2.dart';
+// import 'package:ecommerce_application/screens/accountScreen/change_language_screen.dart';
+// import 'package:ecommerce_application/screens/unused/forget_password_screen.dart';
+// import 'package:ecommerce_application/screens/accountScreen/account_screen.dart';
+// import 'package:ecommerce_application/screens/accountScreen/register_screen.dart';
+// import 'package:ecommerce_application/screens/unused/sign_in_screen.dart';
+// import 'package:ecommerce_application/screens/unused/sign_up_screen.dart';
 import 'package:ecommerce_application/screens/bottom_navigation_bar_design.dart';
 import 'package:ecommerce_application/screens/homeScreenContent/home_screen_content.dart';
 import 'package:flutter/material.dart';
@@ -29,25 +34,27 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      localizationsDelegates: [
+      localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'),
         Locale('ar'),
       ],
       locale: Locale(languageProvider.currentLocale),
-      // locale: Locale('ar'),
       routes: {
         HomeScreenContent.routeName: (_) => HomeScreenContent(),
         AccountScreen.routeName: (_) => AccountScreen(),
-        SignInScreen.routeName: (_) => SignInScreen(),
-        SignUpScreen.routeName: (_) => SignUpScreen(),
-        ForgetPasswordScreen.routeName: (_) => ForgetPasswordScreen(),
         ChangeLanguageScreen.routeName: (_) => ChangeLanguageScreen(),
+        RegisterScreen.routeName: (_) => RegisterScreen(),
+        // ModifiedAccount.routeName: (_) => ModifiedAccount(),
+        // AccountScreen.routeName: (_) => AccountScreen(),
+        // SignInScreen.routeName: (_) => SignInScreen(),
+        // SignUpScreen.routeName: (_) => SignUpScreen(),
+        // ForgetPasswordScreen.routeName: (_) => ForgetPasswordScreen()
       },
       home: BottomNavigationBarDesign(title: "Flutter Demo"),
     );

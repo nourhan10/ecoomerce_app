@@ -1,6 +1,6 @@
 import 'package:ecommerce_application/models/daily_offer_model.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../constants/daily_offers_products.dart';
 
 class DailyOffersSection extends StatelessWidget {
@@ -26,7 +26,7 @@ class DailyOffersSection extends StatelessWidget {
                 right: MediaQuery.of(context).size.height * 0.02,
               ),
               child: Text(
-                "Daily Offers",
+                AppLocalizations.of(context)!.daily_offers,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               )),
           DailyOfferModel(DailyOffersProducts.dailyOffers),

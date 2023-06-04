@@ -1,19 +1,28 @@
 import 'package:ecommerce_application/models/sub_category_model_for_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../providers/language_settings_provider.dart';
 
 class BestSellerSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    LanguageSettingsProvider languageProvider = Provider.of(context);
     List<String> bestSellerImages = [
       "assets/images/iphone.png",
       "assets/images/ipad.png",
       "assets/images/tablet.png",
       "assets/images/laptop.png"
     ];
-    List<String> bestSellerItems = ["IPhone", "IPad", "Tablets", "Laptops"];
-    String title = "Best Seller";
+    List<String> bestSellerItems = [
+      AppLocalizations.of(context)!.iphone,
+      AppLocalizations.of(context)!.ipad,
+      AppLocalizations.of(context)!.tablets,
+      AppLocalizations.of(context)!.laptops
+    ];
+    String title = AppLocalizations.of(context)!.best_seller;
     return Column(
       children: [
         SubCategoryModelForHomeScreen(bestSellerImages, bestSellerItems, title),
@@ -32,13 +41,15 @@ class BestSellerSection extends StatelessWidget {
                       horizontal: MediaQuery.of(context).size.width * 0.06,
                       vertical: MediaQuery.of(context).size.height * 0.03),
                   padding: EdgeInsets.symmetric(
-                      vertical: MediaQuery.of(context).size.height * 0.015,
+                      vertical:
+                      languageProvider.currentLocale == "en"?
+                      MediaQuery.of(context).size.height * 0.015: MediaQuery.of(context).size.height * 0.01,
                       horizontal: MediaQuery.of(context).size.width * 0.06),
                   child: Text(
                     AppLocalizations.of(context)!.see_more,
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: languageProvider.currentLocale == "en"? 16: 14,
                         fontWeight: FontWeight.bold),
                   )),
             )

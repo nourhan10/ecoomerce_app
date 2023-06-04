@@ -1,11 +1,11 @@
-import 'package:ecommerce_application/models/custom_elevated_button_model.dart';
+// import 'package:ecommerce_application/models/custom_elevated_button_model.dart';
 import 'package:ecommerce_application/screens/cartScreen/cart_contains_product.dart';
 import 'package:ecommerce_application/screens/cartScreen/cart_empty.dart';
-import 'package:ecommerce_application/screens/homeScreenContent/home_screen_content.dart';
+// import 'package:ecommerce_application/screens/homeScreenContent/home_screen_content.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import '../../providers/language_settings_provider.dart';
+// import '../../providers/language_settings_provider.dart';
 
 class CartScreen extends StatelessWidget {
   int cartItems = 0;
@@ -15,7 +15,7 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    LanguageSettingsProvider languageProvider = Provider.of(context);
+    // LanguageSettingsProvider languageProvider = Provider.of(context);
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(

@@ -1,7 +1,5 @@
-import 'package:ecommerce_application/screens/accountScreen/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../providers/language_settings_provider.dart';
 
 class CustomElevatedButtonModel extends StatelessWidget {
@@ -16,6 +14,8 @@ class CustomElevatedButtonModel extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+    // String email;
+    // String password;
     LanguageSettingsProvider languageProvider = Provider.of(context);
     return Form(
       key: _formKey,

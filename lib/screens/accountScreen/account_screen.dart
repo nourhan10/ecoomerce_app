@@ -1,119 +1,113 @@
-import 'package:ecommerce_application/screens/accountScreen/change_language_screen.dart';
-import 'package:ecommerce_application/screens/accountScreen/sign_in_screen.dart';
-import 'package:ecommerce_application/screens/accountScreen/sign_up_screen.dart';
+import 'package:ecommerce_application/models/custom_form_text_field_model.dart';
+import 'package:ecommerce_application/screens/accountScreen/register_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
-
-import '../../providers/language_settings_provider.dart';
 
 class AccountScreen extends StatelessWidget {
   static final String routeName = "account screen";
-
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    LanguageSettingsProvider languageProvider = Provider.of(context);
-    return Container(
-      color: Color(0xffbebaba),
-      child: Center(
-          child: Container(
-        height: languageProvider.currentLocale == "en"
-            ? height * 0.45
-            : height * 0.47,
-        width: width * 0.55,
-        padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width * 0.04,
-            vertical: MediaQuery.of(context).size.height * 0.04),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
+    String _password;
+    String _email;
+
+    return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: height * 0.08,
+        title: const Center(
+          child: Text('Login',
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
         ),
+        backgroundColor: Colors.white,
+      ),
+      body: Form(
+        key: _formKey,
         child: Container(
-          // color: Colors.red,
-          padding: EdgeInsets.symmetric(
-              vertical: MediaQuery.of(context).size.height * 0.01),
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                AppLocalizations.of(context)!.if_have_account,
-                style: TextStyle(
-                    fontSize: languageProvider.currentLocale == "en" ? 15 : 13),
-              ),
-              SizedBox(
-                height: languageProvider.currentLocale == "en"
-                    ? MediaQuery.of(context).size.height * 0.02
-                    : MediaQuery.of(context).size.height * 0.015,
-              ),
-              Container(
-                width: width,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, SignInScreen.routeName);
-                  },
-                  child: Text(AppLocalizations.of(context)!.sign_in),
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(
-                        vertical: languageProvider.currentLocale == "en"
-                            ? MediaQuery.of(context).size.height * 0.03
-                            : MediaQuery.of(context).size.height * 0.02),
-                    backgroundColor: Colors.red,
+            color: Colors.grey[200],
+            padding: EdgeInsets.symmetric(
+              horizontal: width * 0.05,
+            ),
+            child: ListView(
+              children: [
+                Center(
+                  child: Container(
+                    height: height * 0.25,
+                    width: height * 0.3,
+                    padding: EdgeInsets.symmetric(horizontal: width * 0.06),
+                    child: Image.asset("assets/images/logo.png"),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: languageProvider.currentLocale == "en"
-                    ? MediaQuery.of(context).size.height * 0.03
-                    : MediaQuery.of(context).size.height * 0.025,
-              ),
-              Text(
-                AppLocalizations.of(context)!.or,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: languageProvider.currentLocale == "en" ? 18 : 15),
-              ),
-              SizedBox(
-                height: languageProvider.currentLocale == "en"
-                    ? MediaQuery.of(context).size.height * 0.03
-                    : MediaQuery.of(context).size.height * 0.025,
-              ),
-              Container(
-                  width: width,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, SignUpScreen.routeName);
-                    },
-                    child: Text(AppLocalizations.of(context)!.sign_up),
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                          vertical: languageProvider.currentLocale == "en"
-                              ? MediaQuery.of(context).size.height * 0.03
-                              : MediaQuery.of(context).size.height * 0.02),
-                      backgroundColor: Color(0xFF575656),
+                Form(
+                    child: Column(
+                  children: [
+                    CustomFormTextFieldModel(
+                      textFieldHint: "Email",
+                      // onClick: (value) {
+                      //   // _email = value;
+                      // },
                     ),
-                  )),
-              SizedBox(
-                height: languageProvider.currentLocale == "en"
-                    ? MediaQuery.of(context).size.height * 0.04
-                    : MediaQuery.of(context).size.height * 0.03,
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, ChangeLanguageScreen.routeName);
-                },
-                child: Text(
-                  AppLocalizations.of(context)!.change_lang,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15
-                      // languageProvider.currentLocale == "en" ? 15 : 13
+                    SizedBox(
+                      height: height * 0.03,
+                    ),
+                    CustomFormTextFieldModel(
+                      textFieldHint: "Password must contains 6 letters",
+                      // onClick: (value) {
+                      //   // _password = value;
+                      // },
+                    ),
+                    SizedBox(
+                      height: height * 0.03,
+                    ),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: width * 0.1, vertical: height * 0.03),
+                        ),
+                        onPressed: () {
+                          _formKey.currentState!.validate();
+                        },
+                        child: const Text(
+                          "Login",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16),
+                        )),
+                    SizedBox(
+                      height: height * 0.03,
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text("Don't have an account?  "),
+                          InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, RegisterScreen.routeName);
+                            },
+                            child: const Text(
+                              "REGISTER",
+                              style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
                       ),
-                ),
-              )
-            ],
-          ),
-        ),
-      )),
+                    )
+                  ],
+                ))
+              ],
+            )),
+      ),
     );
   }
 }

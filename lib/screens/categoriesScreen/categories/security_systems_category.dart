@@ -8,6 +8,6 @@ class SecuritySystemsCategory extends StatelessWidget {
       height: 400,
       // color: Colors.red,
       child: Center(child: Text("Security Systems", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),))
-    );;
+    );
   }
 }

@@ -28,6 +28,20 @@
     "sign_in_with_apple": "Sign in With Apple",
     "sign_in_with_google" : "Sign in With Google",
     "if_have_account": "If You Already Have Account",
-    "or": "OR"
-
+    "or": "OR",
+    "apple": "Apple",
+    "smart_phones": "Smart Phones",
+    "tablets": "Tablets",
+    "accessories": "Accessories",
+    "games": "Games",
+    "electronics": "Electronics",
+    "security_systems": "Security Systems",
+    "iphone": "IPhone",
+    "ipad": "IPad",
+    "mac": "Mac",
+    "laptops": "Laptops",
+    "daily_offers": "Daily Offers",
+    "special_offers": "Special Offers",
+    "best_seller": "Best Seller",
+    "add_to_cart": "Add To Cart"
 }

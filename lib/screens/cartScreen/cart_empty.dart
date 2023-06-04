@@ -12,7 +12,7 @@ class CartEmpty extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     // final width = MediaQuery.of(context).size.width;
-    // LanguageSettingsProvider languageProvider = Provider.of(context);
+    LanguageSettingsProvider languageProvider = Provider.of(context);
     return Column(
       children: [
         Text(
@@ -24,7 +24,7 @@ class CartEmpty extends StatelessWidget {
               fontWeight: FontWeight.bold),
         ),
         Container(
-          height: height * 0.63,
+          height: languageProvider.currentLocale == "en" ? height * 0.63 : height * 0.59,
           child: Image.asset(
             "assets/images/empty_cart.png",
             scale: 0.8,

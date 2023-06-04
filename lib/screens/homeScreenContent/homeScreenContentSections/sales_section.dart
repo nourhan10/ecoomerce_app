@@ -14,7 +14,8 @@ class SalesSection extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text("Special Sales", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              Text(
+                  AppLocalizations.of(context)!.special_offers, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               InkWell(
                 onTap: () {},
                 child: Text(

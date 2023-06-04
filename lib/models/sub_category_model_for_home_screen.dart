@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../providers/language_settings_provider.dart';
 
 class SubCategoryModelForHomeScreen extends StatelessWidget {
   List<String> namesOfSubCategoryItems;
@@ -12,6 +15,8 @@ class SubCategoryModelForHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    LanguageSettingsProvider languageProvider = Provider.of(context);
+
     return Column(
       children: [
         Container(
@@ -70,7 +75,7 @@ class SubCategoryModelForHomeScreen extends StatelessWidget {
                               )),
                         ),
                         Text(namesOfSubCategoryItems[index],
-                            style: const TextStyle(fontSize: 14)),
+                            style: TextStyle(fontSize: languageProvider.currentLocale == "en" ? 14: 12)),
                       ],
                     ),
                   );

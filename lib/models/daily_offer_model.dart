@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../constants/daily_offers_products.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../providers/language_settings_provider.dart';
 
 class DailyOfferModel extends StatelessWidget {
   List<DailyOffersProducts> dailyOffersItems;
@@ -10,8 +14,12 @@ class DailyOfferModel extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+    LanguageSettingsProvider languageProvider = Provider.of(context);
     final dailyOfferWidth = width * 0.5;
-    final dailyOfferHeight = height * 0.66;
+    final dailyOfferHeight = languageProvider.currentLocale == "en"? height * 0.66: height * 0.65;
+
+
+
     return Column(children: [
       SizedBox(
         height: dailyOfferHeight,
@@ -129,8 +137,10 @@ class DailyOfferModel extends StatelessWidget {
                             padding: EdgeInsets.symmetric(
                                 horizontal:
                                     MediaQuery.of(context).size.height * 0.04,
-                                vertical:
-                                    MediaQuery.of(context).size.width * 0.03),
+                                vertical: languageProvider.currentLocale == "en"
+                                    ? MediaQuery.of(context).size.width * 0.03
+                                    : MediaQuery.of(context).size.width *
+                                        0.02),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12),
                               child: ElevatedButton(
@@ -138,8 +148,8 @@ class DailyOfferModel extends StatelessWidget {
                                   backgroundColor: Color(0xFF575656),
                                 ),
                                 onPressed: () {},
-                                child: const Text(
-                                  "Add To Cart",
+                                child: Text(
+                                  AppLocalizations.of(context)!.add_to_cart,
                                   style: TextStyle(
                                     color: Colors.white,
                                   ),

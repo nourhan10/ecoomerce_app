@@ -23,29 +23,28 @@ class _BottomNavigationBarDesignState extends State<BottomNavigationBarDesign> {
   List<BottomNavigationBarItem> buildBottomNavBarItems() {
     return [
       BottomNavigationBarItem(
-        icon: Icon(
+        icon: const Icon(
           Icons.home,
           size: 28,
         ),
         label: AppLocalizations.of(context)!.home,
       ),
       BottomNavigationBarItem(
-        icon: Icon(
+        icon: const Icon(
           Icons.category,
           size: 28,
         ),
         label: AppLocalizations.of(context)!.categories,
       ),
       BottomNavigationBarItem(
-        icon: Icon(
+        icon: const Icon(
           Icons.shopping_cart,
           size: 28,
         ),
         label: AppLocalizations.of(context)!.cart,
-
       ),
       BottomNavigationBarItem(
-        icon: Icon(
+        icon: const Icon(
           Icons.person,
           size: 28,
         ),
@@ -55,7 +54,7 @@ class _BottomNavigationBarDesignState extends State<BottomNavigationBarDesign> {
   }
 
   PageController pageController = PageController(
-    initialPage: 0,
+    initialPage: 3,
     keepPage: true,
   );
 
@@ -89,7 +88,7 @@ class _BottomNavigationBarDesignState extends State<BottomNavigationBarDesign> {
     setState(() {
       bottomSelectedIndex = index;
       pageController.animateToPage(index,
-          curve: Curves.ease, duration: Duration(milliseconds: 10));
+          curve: Curves.ease, duration: const Duration(milliseconds: 10));
     });
   }
 
@@ -101,7 +100,9 @@ class _BottomNavigationBarDesignState extends State<BottomNavigationBarDesign> {
     return Scaffold(
       body: buildPageView(),
       bottomNavigationBar: SizedBox(
-        height: languageProvider.currentLocale == "en"? height * 0.1 : height * 0.112,
+        height: languageProvider.currentLocale == "en"
+            ? height * 0.1
+            : height * 0.112,
         child: BottomNavigationBar(
           showSelectedLabels: true,
           selectedItemColor: Colors.red,
