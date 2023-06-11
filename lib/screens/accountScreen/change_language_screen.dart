@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../providers/language_settings_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChangeLanguageScreen extends StatelessWidget {
   static final routeName = "change language screen";
@@ -20,10 +20,19 @@ class ChangeLanguageScreen extends StatelessWidget {
             onTap: () {
               Navigator.pop(context, true);
             },
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back_ios,
               color: Color(0xFF575656),
             )),
+        title: Container(
+          margin: languageProvider.currentLocale == "en"
+              ? (EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.3))
+              : (EdgeInsets.only(
+                  right: MediaQuery.of(context).size.width * 0.23)),
+          child: Text(AppLocalizations.of(context)!.settings,
+              style:
+                  const TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
+        ),
       ),
       body: Center(
         child: Container(
@@ -49,20 +58,27 @@ class ChangeLanguageScreen extends StatelessWidget {
               ),
               InkWell(
                 onTap: () {
+                  // showDialog(context: context, builder: (context){
+                  //   return const Center(child: CircularProgressIndicator());
+                  // });
+                  // Navigator.of(context).pop();
                   languageProvider.changeCurrentLocale("ar");
+                  // Navigator.of(context).pop();
                 },
                 child: Container(
                   width: width * 0.6,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    color: Color(0xFF575656),
+                    color: languageProvider.currentLocale == "ar"
+                        ? Colors.red
+                        : const Color(0xFF575656),
                   ),
                   padding: EdgeInsets.symmetric(
                       horizontal: MediaQuery.of(context).size.width * 0.2,
                       vertical: MediaQuery.of(context).size.height * 0.017),
-                  margin:
-                      EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
-                  child: Text(
+                  // margin:
+                  //     EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
+                  child: const Text(
                     textAlign: TextAlign.center,
                     "العربية",
                     style: TextStyle(
@@ -72,23 +88,32 @@ class ChangeLanguageScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(
+                height: height * 0.03,
+              ),
               InkWell(
                   onTap: () {
+                    // showDialog(context: context, builder: (context){
+                    //   return const Center(child: CircularProgressIndicator());
+                    // });
+                    // Navigator.of(context).pop();
                     languageProvider.changeCurrentLocale("en");
                   },
                   child: Container(
                     width: width * 0.6,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      color: Color(0xFF575656),
+                      color: languageProvider.currentLocale == "en"
+                          ? Colors.red
+                          : const Color(0xFF575656),
                     ),
                     padding: EdgeInsets.symmetric(
                         horizontal: MediaQuery.of(context).size.width * 0.2,
                         vertical: MediaQuery.of(context).size.height * 0.027),
-                    margin: EdgeInsets.all(
-                        MediaQuery.of(context).size.height * 0.02),
+                    // margin: EdgeInsets.all(
+                    //     MediaQuery.of(context).size.height * 0.02),
                     // color: Color(0xFF575656),
-                    child: Text(
+                    child: const Text(
                         textAlign: TextAlign.center,
                         "English",
                         style: TextStyle(fontSize: 18, color: Colors.white)),

@@ -1,25 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/language_settings_provider.dart';
 
 class CustomFormTextFieldModel extends StatelessWidget {
   String textFieldHint;
+
+  // final textFieldController;
+
   // Function onClick;
 
-  CustomFormTextFieldModel({required this.textFieldHint,
+  CustomFormTextFieldModel({
+    required this.textFieldHint,
+    // required this.textFieldController
     // required this.onClick
   });
+
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    LanguageSettingsProvider languageProvider = Provider.of(context);
     return Form(
       key: formkey,
       child: TextFormField(
-          validator: (value) {
-            if (value!.isEmpty) {
-              return "* Required";
-            } else
-              return null;
-          },
+          // controller: textFieldController,
+          // validator: (value) {
+          //   if (value!.isEmpty) {
+          //     return "* Required";
+          //   } else
+          //     return null;
+          // },
           obscureText: (textFieldHint == 'Password must contains 6 letters')
               ? true
               : false,
@@ -27,7 +38,9 @@ class CustomFormTextFieldModel extends StatelessWidget {
           decoration: InputDecoration(
             hoverColor: Colors.white,
             contentPadding: EdgeInsets.symmetric(
-                vertical: MediaQuery.of(context).size.height * 0.03,
+                vertical: languageProvider.currentLocale == "en"
+                    ? MediaQuery.of(context).size.height * 0.03
+                    : MediaQuery.of(context).size.height * 0.02,
                 horizontal: MediaQuery.of(context).size.width * 0.03),
             filled: true,
             fillColor: Colors.white,
@@ -44,7 +57,8 @@ class CustomFormTextFieldModel extends StatelessWidget {
               borderSide: BorderSide(color: Colors.grey, width: 0.5),
             ),
             hintText: textFieldHint,
-            hintStyle: TextStyle(fontSize: 16),
+            hintStyle: TextStyle(
+                fontSize: languageProvider.currentLocale == "en" ? 16 : 14),
           )),
     );
   }

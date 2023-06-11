@@ -1,13 +1,31 @@
 import 'package:ecommerce_application/models/custom_form_text_field_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 // import 'package:ecommerce_application/screens/accountScreen/account_screen.dart';
 // import 'package:ecommerce_application/screens/accountScreen/account_screen2.dart';
 // import 'package:ecommerce_application/screens/accountScreen/account_screen2.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/language_settings_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   static String routeName = "register screen";
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +51,7 @@ class RegisterScreen extends StatelessWidget {
                     left: MediaQuery.of(context).size.width * 0.3))
                 : (EdgeInsets.only(
                     right: MediaQuery.of(context).size.width * 0.23)),
-            child: const Text('Register',
+            child: Text(AppLocalizations.of(context)!.register,
                 style: TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.black)),
           ),
@@ -60,22 +78,20 @@ class RegisterScreen extends StatelessWidget {
                   child: Column(
                 children: [
                   CustomFormTextFieldModel(
-                      textFieldHint: "First Name",
-                      // onClick: () {}
+                    textFieldHint: AppLocalizations.of(context)!.first_name,
                   ),
                   SizedBox(
                     height: height * 0.02,
                   ),
                   CustomFormTextFieldModel(
-                    textFieldHint: "Last Name",
-                    // onClick: () {},
+                    textFieldHint: AppLocalizations.of(context)!.last_name,
                   ),
                   SizedBox(
                     height: height * 0.02,
                   ),
                   CustomFormTextFieldModel(
-                    textFieldHint: "Email",
-                    // onClick: () {},
+                    textFieldHint: AppLocalizations.of(context)!.email,
+                    // textFieldController: emailController,
                   ),
                   SizedBox(
                     height: height * 0.02,
@@ -83,24 +99,28 @@ class RegisterScreen extends StatelessWidget {
                   Row(
                     children: [
                       Container(
-                        padding: EdgeInsets.symmetric(
-                            vertical:
-                                MediaQuery.of(context).size.height * 0.025,
-                            horizontal:
-                                MediaQuery.of(context).size.width * 0.02),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.grey, width: 0.5),
-                        ),
-                        child: Text("+20  "),
-                      ),
+                          padding: EdgeInsets.symmetric(
+                              vertical:
+                                  MediaQuery.of(context).size.height * 0.025,
+                              horizontal:
+                                  MediaQuery.of(context).size.width * 0.02),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: Colors.grey, width: 0.5),
+                          ),
+                          child: Text(" +20  "),
+
+                          // languageProvider.currentLocale == "en"
+                          //     ? Text(" +20  ")
+                          //     : Text(" 02+  "),
+                          ),
                       SizedBox(
                         width: width * 0.02,
                       ),
                       Expanded(
                           child: CustomFormTextFieldModel(
-                        textFieldHint: "Phone Number",
+                        textFieldHint: AppLocalizations.of(context)!.phone,
                         // onClick: () {},
                       )),
                     ],
@@ -109,8 +129,8 @@ class RegisterScreen extends StatelessWidget {
                     height: height * 0.02,
                   ),
                   CustomFormTextFieldModel(
-                    textFieldHint: "Password must contains 6 letters",
-                    // onClick: () {},
+                    textFieldHint: AppLocalizations.of(context)!.password,
+                    // textFieldController: passwordController,
                   ),
                   SizedBox(
                     height: height * 0.02,
@@ -122,11 +142,19 @@ class RegisterScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         padding: EdgeInsets.symmetric(
-                            horizontal: width * 0.1, vertical: height * 0.03),
+                            horizontal: width * 0.1,
+                            vertical: languageProvider.currentLocale == "en"
+                                ? height * 0.03
+                                : height * 0.02),
                       ),
-                      onPressed: () {},
-                      child: const Text(
-                        "Register",
+                      onPressed: () {
+                        // FirebaseAuth.instance
+                        //     .createUserWithEmailAndPassword(
+                        //     email: emailController.text.trim(),
+                        //     password: passwordController.text.trim());
+                      },
+                      child: Text(
+                        AppLocalizations.of(context)!.register,
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -140,14 +168,16 @@ class RegisterScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text("Have an account?  "),
+                        Text(AppLocalizations.of(context)!.if_have_account),
+                        SizedBox(
+                          width: width * 0.03,
+                        ),
                         InkWell(
                           onTap: () {
-                            Navigator.pop(
-                                context, true);
+                            Navigator.pop(context, true);
                           },
-                          child: const Text(
-                            "Login",
+                          child: Text(
+                            AppLocalizations.of(context)!.login,
                             style: TextStyle(
                                 color: Colors.red, fontWeight: FontWeight.bold),
                           ),
