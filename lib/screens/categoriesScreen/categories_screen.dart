@@ -83,7 +83,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               : height * 0.788,
           width: width,
           color: Colors.grey[200],
-          child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+          // color: Colors.purple,
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.start, children: [
             Container(
                 height: languageProvider.currentLocale == "en"
                     ? height * 0.8
@@ -156,7 +158,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 width: width * 0.8,
                 color: Colors.grey[200],
                 padding: const EdgeInsets.only(
-                    left: 10.0, right: 10.0, top: 15.0, bottom: 0.0),
+                    left: 10.0, right: 10.0, bottom: 0.0),
                 child: Container(
                   child: categoriesContent[selectedCategoryIndex],
                 ))

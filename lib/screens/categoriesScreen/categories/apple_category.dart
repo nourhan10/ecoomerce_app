@@ -8,9 +8,10 @@ class AppleCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Container(
-      height: 200,
-      padding: const EdgeInsets.symmetric(vertical: 5.0),
+      ///height: 200,
+      padding: EdgeInsets.symmetric(vertical: height * 0.01),
       child: ListView(
         children: [
           Container(
@@ -19,7 +20,7 @@ class AppleCategory extends StatelessWidget {
                   topLeft: Radius.circular(14), topRight: Radius.circular(14)),
               color: Colors.white,
             ),
-            padding: const EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(height * 0.02),
             child: Text(
               AppLocalizations.of(context)!.apple,
               style: TextStyle(

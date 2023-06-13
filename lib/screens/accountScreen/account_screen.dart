@@ -92,7 +92,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           padding: EdgeInsets.symmetric(
                               horizontal: width * 0.1,
                               vertical: languageProvider.currentLocale == "en"
-                                  ? height * 0.03
+                                  ? height * 0.017
                                   : height * 0.02),
                         ),
                         onPressed: () {

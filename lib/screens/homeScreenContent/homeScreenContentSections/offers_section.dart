@@ -9,14 +9,16 @@ class OffersSection extends StatelessWidget {
     List<String> ListOfImagesPathForOffers = [
       "assets/images/offer1.png",
       "assets/images/offer2.png",
-      "assets/images/offer3.jpg",
-      "assets/images/offer4.jpg"
+      "assets/images/offer1.png",
+      "assets/images/offer2.png",
+      // "assets/images/offer3.jpg",
+      // "assets/images/offer4.jpg"
     ];
     return Container(
         padding: EdgeInsets.symmetric(
             vertical: MediaQuery.of(context).size.height * 0.01),
         color: Colors.grey[200],
-        height: height * 0.3,
+        height: height * 0.22,
         child: ListView.builder(
             itemCount: ListOfImagesPathForOffers.length,
             scrollDirection: Axis.horizontal,

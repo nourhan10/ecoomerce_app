@@ -32,7 +32,7 @@ class SalesSection extends StatelessWidget {
               onTap: (){},
               child: Image.asset(
                 "assets/images/sales.jpg",
-                height: height * 0.4,
+                height: height * 0.32,
                 width: width * 0.9,
                 fit: BoxFit.cover,
               ),

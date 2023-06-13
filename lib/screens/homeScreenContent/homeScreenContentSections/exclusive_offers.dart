@@ -14,7 +14,7 @@ class ExclusiveOffers extends StatelessWidget {
       // color: Colors.grey[200],
         padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.01),
         // color: Colors.yellow,
-        height: height * 0.3,
+        height: height * 0.23,
         width: width,
         child: ListView.builder(
             itemCount: ListOfImagesPathForExclusiveOffers.length,

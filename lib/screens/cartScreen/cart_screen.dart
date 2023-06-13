@@ -57,7 +57,8 @@ class CartScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.0)),
                       backgroundColor: Colors.red,
-                      fixedSize: Size(width, height * 0.08),
+                      // fixedSize: Size(width, height * 0.08),
+                      fixedSize: Size(width, height * 0.06),
                     ),
                     onPressed: () {},
                     child: Align(

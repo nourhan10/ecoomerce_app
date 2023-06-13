@@ -2,12 +2,14 @@ import 'package:ecommerce_application/models/sub_category_model_for_home_screen.
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../providers/language_settings_provider.dart';
 
 class BestSellerSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     LanguageSettingsProvider languageProvider = Provider.of(context);
     List<String> bestSellerImages = [
@@ -37,19 +39,15 @@ class BestSellerSection extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Color(0xFF575656),
                       borderRadius: BorderRadius.circular(12)),
-                  margin: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.06,
-                      vertical: MediaQuery.of(context).size.height * 0.03),
+                  margin: EdgeInsets.symmetric(horizontal: width * 0.06, vertical: height * 0.03),
                   padding: EdgeInsets.symmetric(
-                      vertical:
-                      languageProvider.currentLocale == "en"?
-                      MediaQuery.of(context).size.height * 0.015: MediaQuery.of(context).size.height * 0.01,
-                      horizontal: MediaQuery.of(context).size.width * 0.06),
+                      vertical: languageProvider.currentLocale == "en" ? height * 0.015 : height * 0.01,
+                      horizontal: width * 0.06),
                   child: Text(
                     AppLocalizations.of(context)!.see_more,
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: languageProvider.currentLocale == "en"? 16: 14,
+                        fontSize: languageProvider.currentLocale == "en" ? 16 : 14,
                         fontWeight: FontWeight.bold),
                   )),
             )

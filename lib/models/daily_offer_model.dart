@@ -15,11 +15,9 @@ class DailyOfferModel extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     LanguageSettingsProvider languageProvider = Provider.of(context);
-    final dailyOfferWidth = width * 0.5;
-    final dailyOfferHeight = languageProvider.currentLocale == "en"? height * 0.66: height * 0.65;
-
-
-
+    final dailyOfferWidth = width * 0.75;
+    final dailyOfferHeight =
+        languageProvider.currentLocale == "en" ? height * 0.67 : height * 0.65;
     return Column(children: [
       SizedBox(
         height: dailyOfferHeight,
@@ -30,8 +28,7 @@ class DailyOfferModel extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.02,
-                      vertical: MediaQuery.of(context).size.height * 0.04),
+                      horizontal: width * 0.02, vertical: height * 0.04),
                   child: Column(
                     children: [
                       ClipRRect(
@@ -42,10 +39,8 @@ class DailyOfferModel extends StatelessWidget {
                             width: dailyOfferWidth,
                             height: height * 0.23,
                             padding: EdgeInsets.symmetric(
-                                horizontal:
-                                    MediaQuery.of(context).size.height * 0.04,
-                                vertical:
-                                    MediaQuery.of(context).size.width * 0.01),
+                                horizontal: height * 0.04,
+                                vertical: width * 0.01),
                             color: Colors.white,
                             child: Stack(
                               children: [
@@ -54,10 +49,10 @@ class DailyOfferModel extends StatelessWidget {
                                       .dailyOffers[index].productImagePath,
                                   fit: BoxFit.fill,
                                 ),
-                                Align(
-                                  alignment: AlignmentDirectional.topEnd,
-                                  child: Icon(Icons.favorite_border),
-                                )
+                                /// Align(
+                                ///  alignment: AlignmentDirectional.topEnd,
+                                ///   child: Icon(Icons.favorite_border),
+                                /// )
                               ],
                             )),
                       ),
@@ -66,10 +61,7 @@ class DailyOfferModel extends StatelessWidget {
                         height: height * 0.05,
                         color: Colors.white,
                         padding: EdgeInsets.symmetric(
-                            horizontal:
-                                MediaQuery.of(context).size.width * 0.03,
-                            vertical:
-                                MediaQuery.of(context).size.height * 0.01),
+                            horizontal: width * 0.03, vertical: height * 0.01),
                         child: Text(
                           DailyOffersProducts.dailyOffers[index].productName,
                           style: const TextStyle(fontWeight: FontWeight.bold),
@@ -82,10 +74,7 @@ class DailyOfferModel extends StatelessWidget {
                         height: height * 0.12,
                         color: Colors.white,
                         padding: EdgeInsets.symmetric(
-                            horizontal:
-                                MediaQuery.of(context).size.width * 0.03,
-                            vertical:
-                                MediaQuery.of(context).size.height * 0.01),
+                            horizontal: width * 0.03, vertical: height * 0.01),
                         child: Text(
                           DailyOffersProducts
                               .dailyOffers[index].productDescription,
@@ -102,10 +91,7 @@ class DailyOfferModel extends StatelessWidget {
                         width: dailyOfferWidth,
                         color: Colors.white,
                         padding: EdgeInsets.symmetric(
-                            horizontal:
-                                MediaQuery.of(context).size.width * 0.03,
-                            vertical:
-                                MediaQuery.of(context).size.height * 0.01),
+                            horizontal: width * 0.03, vertical: height * 0.01),
                         child: Text(
                           "EGP ${DailyOffersProducts.dailyOffers[index].productPriceBeforeDiscount}",
                           style: TextStyle(
@@ -117,9 +103,7 @@ class DailyOfferModel extends StatelessWidget {
                       Container(
                         width: dailyOfferWidth,
                         color: Colors.white,
-                        padding: EdgeInsets.symmetric(
-                            horizontal:
-                                MediaQuery.of(context).size.width * 0.03),
+                        padding: EdgeInsets.symmetric(horizontal: width * 0.03),
                         child: Text(
                           "EGP ${DailyOffersProducts.dailyOffers[index].productPriceAfterDiscount}",
                           style: TextStyle(
@@ -135,12 +119,10 @@ class DailyOfferModel extends StatelessWidget {
                             height: height * 0.1,
                             color: Colors.white,
                             padding: EdgeInsets.symmetric(
-                                horizontal:
-                                    MediaQuery.of(context).size.height * 0.04,
+                                horizontal: width * 0.2,
                                 vertical: languageProvider.currentLocale == "en"
-                                    ? MediaQuery.of(context).size.width * 0.03
-                                    : MediaQuery.of(context).size.width *
-                                        0.02),
+                                    ? height * 0.027
+                                    : height * 0.02),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12),
                               child: ElevatedButton(

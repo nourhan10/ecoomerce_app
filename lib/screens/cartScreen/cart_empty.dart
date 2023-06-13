@@ -24,7 +24,8 @@ class CartEmpty extends StatelessWidget {
               fontWeight: FontWeight.bold),
         ),
         Container(
-          height: languageProvider.currentLocale == "en" ? height * 0.63 : height * 0.59,
+          // height: languageProvider.currentLocale == "en" ? height * 0.63 : height * 0.59,
+          height: languageProvider.currentLocale == "en" ? height * 0.6 : height * 0.57,
           child: Image.asset(
             "assets/images/empty_cart.png",
             scale: 0.8,

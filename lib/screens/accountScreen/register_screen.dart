@@ -100,7 +100,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Container(
                           padding: EdgeInsets.symmetric(
                               vertical:
-                                  MediaQuery.of(context).size.height * 0.025,
+                                  MediaQuery.of(context).size.height * 0.02,
                               horizontal:
                                   MediaQuery.of(context).size.width * 0.02),
                           decoration: BoxDecoration(
@@ -143,7 +143,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         padding: EdgeInsets.symmetric(
                             horizontal: width * 0.1,
                             vertical: languageProvider.currentLocale == "en"
-                                ? height * 0.03
+                                ? height * 0.017
                                 : height * 0.02),
                       ),
                       onPressed: () {

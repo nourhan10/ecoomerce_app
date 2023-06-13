@@ -35,7 +35,7 @@ class CustomFormTextFieldModel extends StatelessWidget {
             hoverColor: Colors.white,
             contentPadding: EdgeInsets.symmetric(
                 vertical: languageProvider.currentLocale == "en"
-                    ? MediaQuery.of(context).size.height * 0.03
+                    ? MediaQuery.of(context).size.height * 0.02
                     : MediaQuery.of(context).size.height * 0.02,
                 horizontal: MediaQuery.of(context).size.width * 0.03),
             filled: true,
