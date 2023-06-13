@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 // import 'package:provider/provider.dart';
 // import '../../../providers/language_settings_provider.dart';
 
@@ -21,9 +22,9 @@ class HomeContentAppBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: height * .6,
-              margin: EdgeInsets.only(left: 20),
-              width: width * .7,
+              // height: height * .4,
+              margin: EdgeInsets.only(left: width * 0.01),
+              width: width * .75,
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
@@ -46,7 +47,7 @@ class HomeContentAppBar extends StatelessWidget {
             Container(
               height: height,
               width: width * 0.15,
-              margin: EdgeInsets.only(right: 20),
+              margin: EdgeInsets.only(right: width * 0.01),
               child: Image.asset(
                 "assets/images/blue-logo.png",
                 fit: BoxFit.contain,

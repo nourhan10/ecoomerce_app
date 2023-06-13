@@ -5,36 +5,32 @@ import '../providers/language_settings_provider.dart';
 
 class CustomFormTextFieldModel extends StatelessWidget {
   String textFieldHint;
-
   // final textFieldController;
-
   // Function onClick;
-
   CustomFormTextFieldModel({
     required this.textFieldHint,
     // required this.textFieldController
     // required this.onClick
   });
+  final _formKey = GlobalKey<FormState>();
 
-  final GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  // final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     LanguageSettingsProvider languageProvider = Provider.of(context);
     return Form(
-      key: formkey,
+      key: _formKey,
       child: TextFormField(
-          // controller: textFieldController,
-          // validator: (value) {
-          //   if (value!.isEmpty) {
-          //     return "* Required";
-          //   } else
-          //     return null;
-          // },
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter some text';
+            }
+            return null;
+          },
           obscureText: (textFieldHint == 'Password must contains 6 letters')
               ? true
               : false,
-          // onSaved: onClick(),
           decoration: InputDecoration(
             hoverColor: Colors.white,
             contentPadding: EdgeInsets.symmetric(

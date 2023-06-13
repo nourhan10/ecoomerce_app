@@ -37,8 +37,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
     return Scaffold(
         body: Column(children: [
+      SizedBox(
+        height: height * 0.025,
+      ),
       Container(
-        height: height * .1,
+        // height: height * .1,
         width: width,
         color: Colors.white,
         child: Padding(
@@ -49,7 +52,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             children: [
               Container(
                 alignment: Alignment.center,
-                height: height * .6,
+                // height: height * .3,
                 width: width * .9,
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -85,10 +88,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 height: languageProvider.currentLocale == "en"
                     ? height * 0.8
                     : height * 0.788,
-                width: width * 0.22,
+                ///width: width * 0.22,
+                width: width * 0.2,
                 color: Colors.white,
                 child: ListenableProvider(
-
                     /// create Provider
                     create: (_) => AllCategoriesProvider(),
                     child: Consumer<AllCategoriesProvider>(
@@ -104,9 +107,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                       selectedCategoryIndex = selectedIndex;
                                     });
                                   },
-                                  child: Container(
-                                      decoration: selectedIndex == index
-                                          ? BoxDecoration(
+                                  child: Container(decoration: selectedIndex == index ? BoxDecoration(
                                               color: Colors.grey[200],
                                               border: languageProvider
                                                           .currentLocale ==
@@ -119,16 +120,16 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       right: BorderSide(
                                                           color: Colors.red,
                                                           width: 2)),
-                                            )
-                                          : null,
+                                            ) : null,
                                       padding:
                                           languageProvider.currentLocale == "en"
-                                              ? const EdgeInsets.symmetric(
-                                                  vertical: 26.0,
-                                                  horizontal: 8.0)
-                                              : const EdgeInsets.symmetric(
-                                                  vertical: 20.0,
-                                                  horizontal: 8.0),
+                                              ? EdgeInsets.symmetric(vertical: height * 0.03,
+                                              // horizontal: 8.0
+                                          )
+                                              : EdgeInsets.symmetric(
+                                                  vertical: height * 0.03,
+                                                  // horizontal: 8.0
+                                          ),
                                       child: Center(
                                           child: Text(
                                               languageProvider.currentLocale ==
@@ -151,7 +152,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 height: languageProvider.currentLocale == "en"
                     ? height * 0.8
                     : height * 0.788,
-                width: width * 0.78,
+               /// width: width * 0.78,
+                width: width * 0.8,
                 color: Colors.grey[200],
                 padding: const EdgeInsets.only(
                     left: 10.0, right: 10.0, top: 15.0, bottom: 0.0),

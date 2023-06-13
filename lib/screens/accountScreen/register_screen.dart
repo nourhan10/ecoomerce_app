@@ -1,6 +1,5 @@
 import 'package:ecommerce_application/models/custom_form_text_field_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 // import 'package:ecommerce_application/screens/accountScreen/account_screen.dart';
 // import 'package:ecommerce_application/screens/accountScreen/account_screen2.dart';
 // import 'package:ecommerce_application/screens/accountScreen/account_screen2.dart';

@@ -54,7 +54,7 @@ class _BottomNavigationBarDesignState extends State<BottomNavigationBarDesign> {
   }
 
   PageController pageController = PageController(
-    initialPage: 0,
+    initialPage: 1,
     keepPage: true,
   );
 
