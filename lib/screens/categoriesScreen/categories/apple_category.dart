@@ -11,7 +11,7 @@ class AppleCategory extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     return Container(
       ///height: 200,
-      padding: EdgeInsets.symmetric(vertical: height * 0.01),
+      // padding: EdgeInsets.symmetric(vertical: height * 0.01),
       child: ListView(
         children: [
           Container(
@@ -31,8 +31,8 @@ class AppleCategory extends StatelessWidget {
           ),
           SubCategoryModel(ConstantLists.pathesOfIPhoneSubCategoryImages,
               ConstantLists.namesOfIPhoneSubCategoryItems),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: height * 0.02,
           ),
           Container(
             decoration: const BoxDecoration(
@@ -51,8 +51,8 @@ class AppleCategory extends StatelessWidget {
           ),
           SubCategoryModel(ConstantLists.pathesOfIPadSubCategoryImages,
               ConstantLists.namesOfIPadSubCategoryItems),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: height * 0.02,
           ),
           // Container(
           //   decoration: const BoxDecoration(

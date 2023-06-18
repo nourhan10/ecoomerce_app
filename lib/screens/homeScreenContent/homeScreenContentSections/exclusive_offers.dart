@@ -17,6 +17,7 @@ class ExclusiveOffers extends StatelessWidget {
         height: height * 0.23,
         width: width,
         child: ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
             itemCount: ListOfImagesPathForExclusiveOffers.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
@@ -27,7 +28,7 @@ class ExclusiveOffers extends StatelessWidget {
                   child: Image.asset(
                     ListOfImagesPathForExclusiveOffers[index],
                     height: height,
-                    width: width * 0.45,
+                    width: width * 0.435,
                     fit:BoxFit.cover,
                   ),
                 ),

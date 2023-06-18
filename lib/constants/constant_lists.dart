@@ -18,7 +18,7 @@ class ConstantLists{
     "ipad pro 12.9-inch",
     "ipad mini Wi-Fi",
     "ipad pro 11-inch",
-    "ipad pro 12.9-inch"
+    // "ipad pro 12.9-inch"
   ];
   static final List<String> pathesOfIPadSubCategoryImages = [
     "assets/images/ipad_mini_Wi-Fi.png",
@@ -27,7 +27,7 @@ class ConstantLists{
     "assets/images/ipad_pro_12.9-inch_Wi-Fi.png",
     "assets/images/ipad_mini_Wi-Fi.png",
     "assets/images/ipad_pro_11-inch_Wi-Fi.png",
-    "assets/images/ipad_pro_12.9-inch_Wi-Fi.png",
+    // "assets/images/ipad_pro_12.9-inch_Wi-Fi.png",
   ];
   static final List<String> namesOfMacSubCategoryItems = [
     "Mac Mini",

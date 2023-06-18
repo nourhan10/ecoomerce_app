@@ -22,6 +22,7 @@ class SubCategoryModel extends StatelessWidget {
           color: Colors.white,
         ),
         child: GridView.builder(
+          physics: NeverScrollableScrollPhysics(),
             itemCount: namesOfSubCategoryItems.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3),

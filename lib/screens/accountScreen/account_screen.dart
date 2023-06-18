@@ -1,7 +1,7 @@
 import 'package:ecommerce_application/models/custom_form_text_field_model.dart';
 import 'package:ecommerce_application/screens/accountScreen/change_language_screen.dart';
 import 'package:ecommerce_application/screens/accountScreen/register_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +16,7 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   // final emailController = TextEditingController();
   // final passwordController = TextEditingController();
@@ -69,6 +69,18 @@ class _AccountScreenState extends State<AccountScreen> {
                   children: [
                     CustomFormTextFieldModel(
                       textFieldHint: AppLocalizations.of(context)!.email,
+                      validationCondition: (text) {
+                        if (text.trim() == "") {
+                          return "Please Enter Your Email";
+                        }
+                        final bool emailValid =
+                        RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                            .hasMatch(text);
+                        if(!emailValid){
+                          return "Please Enter Valid Email";
+                        }
+                        return null;
+                      },
                       // textFieldHint: "Email",
                       // textFieldController: emailController,
                     ),
@@ -77,6 +89,12 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
                     CustomFormTextFieldModel(
                       textFieldHint: AppLocalizations.of(context)!.password,
+                      validationCondition: (text) {
+                        if (text.trim() == "") {
+                          return "Please Enter Your Password";
+                        }
+                        return null;
+                      },
                       // textFieldHint: "Password must contains 6 letters",
                       // textFieldController: passwordController,
                     ),
@@ -91,16 +109,15 @@ class _AccountScreenState extends State<AccountScreen> {
                           ),
                           padding: EdgeInsets.symmetric(
                               horizontal: width * 0.1,
-                              vertical: languageProvider.currentLocale == "en"
-                                  ? height * 0.017
-                                  : height * 0.02),
+                              vertical: height * 0.017),
                         ),
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Processing Data')),
-                            );
-                          }
+                         CreateAccount();
+                          // if (_formKey.currentState!.validate()) {
+                          //   ScaffoldMessenger.of(context).showSnackBar(
+                          //     const SnackBar(content: Text('Processing Data')),
+                          //   );
+                          // }
                         },
                         // FirebaseAuth.instance.signInWithEmailAndPassword(
                         //     email: emailController.text.trim(),
@@ -128,8 +145,8 @@ class _AccountScreenState extends State<AccountScreen> {
                           ),
                           InkWell(
                             onTap: () {
-                              Navigator.pushNamed(
-                                  context, RegisterScreen.routeName);
+                              // Navigator.pushNamed(
+                              //     context, RegisterScreen.routeName);
                             },
                             child: Text(
                               AppLocalizations.of(context)!.register,
@@ -165,5 +182,10 @@ class _AccountScreenState extends State<AccountScreen> {
             )),
       ),
     );
+  }
+  void CreateAccount(){
+    if(_formKey.currentState!.validate()){
+      print("helloooooooooooooooo");
+    }
   }
 }

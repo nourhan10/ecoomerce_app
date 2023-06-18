@@ -24,15 +24,15 @@ class ChangeLanguageScreen extends StatelessWidget {
               Icons.arrow_back_ios,
               color: Color(0xFF575656),
             )),
-        title: Container(
-          margin: languageProvider.currentLocale == "en"
-              ? (EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.3))
-              : (EdgeInsets.only(
-                  right: MediaQuery.of(context).size.width * 0.23)),
-          child: Text(AppLocalizations.of(context)!.settings,
-              style:
-                  const TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
-        ),
+        // title: Container(
+        //   margin: languageProvider.currentLocale == "en"
+        //       ? (EdgeInsets.only(left: width * 0.2))
+        //       : (EdgeInsets.only(
+        //           right: width * 0.17)),
+        //   child: Text(AppLocalizations.of(context)!.settings,
+        //       style:
+        //           const TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
+        // ),
       ),
       body: Center(
         child: Container(

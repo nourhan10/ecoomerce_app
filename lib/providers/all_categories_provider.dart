@@ -8,7 +8,7 @@ class AllCategoriesProvider with ChangeNotifier{
     Category(name: "Accessories"),
     Category(name: "Games"),
     Category(name: "Electronics"),
-    // Category(name: "Security Systems")
+    Category(name: "Security Systems")
   ];
 
   static List<Category> arabicNamesOfAllCategories = [
@@ -18,7 +18,7 @@ class AllCategoriesProvider with ChangeNotifier{
     Category(name: "اكسسوارات"),
     Category(name: "العاب"),
     Category(name: "اليكترونيات"),
-    // Category(name: "الأنظمة الآمنة"),
+    Category(name: "الأنظمة الآمنة"),
   ];
 
 }

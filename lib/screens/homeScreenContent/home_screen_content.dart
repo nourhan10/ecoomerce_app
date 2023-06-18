@@ -15,6 +15,7 @@ class HomeScreenContent extends StatelessWidget {
         body: SafeArea(
           child: ListView(
             children: [
+              // BestSellerSection(),
               HomeContentAppBar(),
               OffersSection(),
               ExclusiveOffers(),

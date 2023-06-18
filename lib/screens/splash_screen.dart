@@ -19,7 +19,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
             context,
             MaterialPageRoute(
                 builder: (context) => BottomNavigationBarDesign(
-                      title: 'hello',
+                      title: 'Smart deal',
                     ))));
   }
 

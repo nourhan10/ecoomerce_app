@@ -50,6 +50,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // Icon(Icons.menu, color: Colors.red, size: ),
               Container(
                 alignment: Alignment.center,
                 // height: height * .3,
@@ -84,21 +85,23 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           width: width,
           color: Colors.grey[200],
           // color: Colors.purple,
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.start, children: [
+          child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
             Container(
                 height: languageProvider.currentLocale == "en"
                     ? height * 0.8
                     : height * 0.788,
+
                 ///width: width * 0.22,
-                width: width * 0.2,
+                width: width * 0.21,
                 color: Colors.white,
                 child: ListenableProvider(
+
                     /// create Provider
                     create: (_) => AllCategoriesProvider(),
                     child: Consumer<AllCategoriesProvider>(
                       builder: (context, allCategories, child) {
                         return ListView.builder(
+                            physics: NeverScrollableScrollPhysics(),
                             itemCount: AllCategoriesProvider
                                 .englishNamesOfAllCategories.length,
                             itemBuilder: (BuildContext context, int index) {
@@ -109,7 +112,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                       selectedCategoryIndex = selectedIndex;
                                     });
                                   },
-                                  child: Container(decoration: selectedIndex == index ? BoxDecoration(
+                                  child: Container(
+                                      decoration: selectedIndex == index
+                                          ? BoxDecoration(
                                               color: Colors.grey[200],
                                               border: languageProvider
                                                           .currentLocale ==
@@ -122,16 +127,18 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                       right: BorderSide(
                                                           color: Colors.red,
                                                           width: 2)),
-                                            ) : null,
-                                      padding:
-                                          languageProvider.currentLocale == "en"
-                                              ? EdgeInsets.symmetric(vertical: height * 0.03,
-                                              // horizontal: 8.0
-                                          )
-                                              : EdgeInsets.symmetric(
-                                                  vertical: height * 0.03,
-                                                  // horizontal: 8.0
-                                          ),
+                                            )
+                                          : null,
+                                      padding: EdgeInsets.symmetric(
+                                          vertical: height * 0.03),
+                                      // languageProvider.currentLocale == "en"
+                                      //     ? EdgeInsets.symmetric(vertical: height * 0.03,
+                                      // horizontal: 8.0
+                                      // )
+                                      //     : EdgeInsets.symmetric(
+                                      //         vertical: height * 0.03,
+                                      // horizontal: 8.0
+                                      // ),
                                       child: Center(
                                           child: Text(
                                               languageProvider.currentLocale ==
@@ -154,11 +161,12 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 height: languageProvider.currentLocale == "en"
                     ? height * 0.8
                     : height * 0.788,
-               /// width: width * 0.78,
-                width: width * 0.8,
+
+                /// width: width * 0.78,
+                width: width * 0.79,
                 color: Colors.grey[200],
-                padding: const EdgeInsets.only(
-                    left: 10.0, right: 10.0, bottom: 0.0),
+                padding:
+                    const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 0.0),
                 child: Container(
                   child: categoriesContent[selectedCategoryIndex],
                 ))

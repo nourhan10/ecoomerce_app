@@ -32,22 +32,24 @@ class SubCategoryModelForHomeScreen extends StatelessWidget {
           ),
         ),
         Container(
-            height: height * 0.52,
+            height: height * 0.50,
             /// height: height * 0.72
             color: Colors.white,
             child: GridView.builder(
+              physics: NeverScrollableScrollPhysics(),
                 itemCount: namesOfSubCategoryItems.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 1.4/ 1.6,
+                    // childAspectRatio: 1.4/ 1.5,
                     crossAxisSpacing: width * 0.002,
-                    mainAxisSpacing: height * 0),
+                    mainAxisSpacing: height * 0.005),
                 itemBuilder: (context, index) {
                   return Container(
+                    // margin: EdgeInsets.only(bottom: height * 0.005),
                     child: Column(
                       children: [
                         Container(
-                          margin: EdgeInsets.symmetric(vertical: height * 0.02),
+                          // margin: EdgeInsets.symmetric(vertical: height * 0.02),
                           child: ClipRRect(
                               borderRadius: BorderRadius.circular(10.0),
                               child: Container(
@@ -72,6 +74,7 @@ class SubCategoryModelForHomeScreen extends StatelessWidget {
                                     pathesOfSubCategoryImages[index]),
                               )),
                         ),
+                        SizedBox(height: height * 0.01,),
                         Text(namesOfSubCategoryItems[index],
                             style: TextStyle(
                                 fontSize: languageProvider.currentLocale == "en"

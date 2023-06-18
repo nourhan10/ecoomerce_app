@@ -1,5 +1,6 @@
 import 'package:ecommerce_application/screens/accountScreen/account_screen.dart';
 import 'package:ecommerce_application/screens/cartScreen/cart_screen.dart';
+import 'package:ecommerce_application/screens/categoriesScreen/categories/categories.dart';
 import 'package:ecommerce_application/screens/homeScreenContent/home_screen_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -72,7 +73,8 @@ class _BottomNavigationBarDesignState extends State<BottomNavigationBarDesign> {
       },
       children: <Widget>[
         HomeScreenContent(),
-        CategoriesScreen(),
+        Categories(),
+        // CategoriesScreen(),
         CartScreen(),
         AccountScreen()
       ],
